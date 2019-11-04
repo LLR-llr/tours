@@ -1,0 +1,101 @@
+
+.banner-img{
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.banner-img>img{
+    width: 100%;
+}
+.aboutus{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:40px auto;
+}
+.aboutus>.line{
+    width:40%;
+    height:1px;
+    border-bottom: solid 1px #d6d6d6;
+}
+.guanyu>.zhongwen{
+    font-size: 32px;
+    transition: font-size 0.5s;
+}
+.guanyu>.yingwen{
+    font-size: 14px;
+    color: #a5a5a5;
+    text-align: center;
+    transition: font-size 0.5s;
+}
+
+@media screen and (max-width:768px){
+    .guanyu>.zhongwen{
+        font-size: 20px;
+    }
+    .guanyu>.yingwen{
+        font-size: 20px;
+    }
+    .guide-detail-img{
+        width: 200px;
+    }
+}
+/* 详细介绍开始 */
+.content{
+    padding: 0 20px;
+    overflow: hidden;
+    margin: 60px auto;
+    box-sizing: border-box;
+}
+.content-wenzi{
+    padding: 0 12px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.content-wenzi>.wenzi{
+    overflow: hidden;
+    font-size: 14px;
+    color: #3e3e3e;
+    margin-bottom: 24px;
+    line-height: 2em;
+}
+.content>.img{
+    padding: 0 20px 20px;
+    box-sizing: border-box;
+}
+.content>.img>img{
+    width: 100%;
+}
+/* 详细介绍结束 */
+/* 导游介绍开始 */
+.guide{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+.guide-detail{
+    overflow: hidden;
+}
+.guide-detail-img{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    text-align: center;
+}
+.guide-detail-img>img{
+    border-radius: 50%;
+}
+.guide-detail-name{
+    text-align: center;
+    font-size: 26px;
+    color: black;
+    margin: 20px auto 0;
+}
+.guide-detail-pos{
+    font-size: 14px;
+    color: #f0443a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* 导游介绍结束 */

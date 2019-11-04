@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看导航</title>
+    <link rel="stylesheet" href="../../../公共css/bootstrap.min.css">
+</head>
+<style>
+    tbody input{
+        border: none;
+        background-color: transparent;
+    }
+
+</style>
+<body>
+<ol class="breadcrumb">
+    <li >首页</li>
+    <li style="color:#337ab7">分类查看</li>
+</ol>
+<div id='table' class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>景点分类名称</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            foreach($result as $key=>$values){
+            ?>
+            <tr id="<?php echo $values['cid']; ?>">
+            <td><input name="cid" autocomplete="off" data-value="<?php echo $values['cid']; ?>" value="<?php echo $values['cid']; ?>"></td>
+            <td><input name="cname" autocomplete="off" data-value="<?php echo $values['cname']; ?>" value="<?php echo $values['cname']; ?>"></td>
+            <td><button class="btn btn-danger">删除</button></td>
+            </tr>
+
+
+            <?php
+            }
+            ?>
+
+            </tbody>
+        </table>
+        <a href="cateinsert.php" class="btn btn-success">添加</a>
+    </div>
+</div>
+</body>
+</html>
+<script src="../../../公共js/jquery-3.4.1.min.js"></script>
+<script>
+    $('tbody').on('click','.btn-danger',function (e) {
+        e.preventDefault();
+        $id=$(this).closest('tr').attr('id');
+        console.log($id);
+        $.ajax({
+            type:'POST',
+            url:'catedelete.php',
+            dataType:'json',
+            data:{$id},
+            success:function (res) {
+                if(res.code===200){
+                    $('#'+$id).remove();
+                    console.log(res.msg)
+                }else{
+                    console.log(res.msg)
+                }
+            }
+        })
+    });
+    $('tbody').on('blur','input',function (e) {
+        e.preventDefault();
+        let value=this.value.trim();
+        let id=$(this).closest('tr').attr('id');
+        let name=this.name;
+        let oldvalue=this.dataset.value;
+        // console.log(id,name,value,oldvalue);
+         value.length && value!=oldvalue && $.ajax({
+            type:'POST',
+            url:'cateupdate.php',
+            dataType: 'json',
+            data:{id,name,value},
+            context:this,
+            success:function (res) {
+                if(res.code===200){
+                    console.log(res.msg)
+                }else{
+                    console.log(res.msg);
+                    this.value=oldvalue
+                }
+            }
+        });
+        value.length || (this.value=oldvalue);
+    })
+
+</script>

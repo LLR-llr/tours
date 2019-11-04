@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加导航</title>
+    <link rel="stylesheet" href="../../../公共css/bootstrap.min.css">
+</head>
+<body>
+<ol class="breadcrumb">
+    <li >首页</li>
+    <li style="color:#337ab7">导航添加</li>
+</ol>
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">中文名称</label>
+        <input name="nname" type="text" class="form-control" id="exampleInputEmail1" placeholder="中文名称">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">英文名称</label>
+        <input name='ename' type="text" class="form-control" id="exampleInputPassword1" placeholder="英文名称">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword3">排序</label>
+        <input name='nsort' type="number" class="form-control" id="exampleInputPassword3" placeholder="排序">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword4">栏目模板</label>
+        <input name='ntpl' type="text" class="form-control" id="exampleInputPassword4" placeholder="栏目模板">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</body>
+</html>
+<script src="../../../公共js/jquery-3.4.1.min.js"></script>
+<script>
+    $('form').on('submit',function (e) {
+        e.preventDefault();
+        $qs=$(this).serialize();
+        // console.log($qs)
+        $.ajax({
+            type:'POST',
+            url:'navinsert.php',
+            data:$qs,
+            dataType:'json',
+            context:this,
+            success:function (res) {
+                if(res.code===200){
+                    console.log(res.msg)
+                    this.reset();
+                }else{
+                    console.log(res.msg)
+                }
+            }
+        })
+    })
+
+
+
+</script>

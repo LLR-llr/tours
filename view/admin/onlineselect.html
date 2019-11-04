@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+<ol class="breadcrumb">
+    <li >首页</li>
+    <li style="color:#337ab7">预约查看</li>
+</ol>
+<div id='table' class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>预约服务</th>
+                <th>预约日期</th>
+                <th>您的姓名</th>
+                <th>您的性别</th>
+                <th>您的电话</th>
+                <th>补充内容</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            foreach($result as $key=>$values){
+
+            ?>
+
+            <tr id="<?php echo $values['id']; ?>">
+
+                <!--<select name="cid" id="">-->
+                <!--<option value="<?php echo $value['cid'] ?>"><?php echo $value['cname']?></option></select>-->
+                <td><?php echo $values['oservice']; ?></td>
+                <td><?php echo $values['odatey']; ?>/<?php echo $values['odatem']; ?>/<?php echo $values['odated']; ?></td>
+                <td><?php echo $values['ouser']; ?></td>
+                <!--<td><input name="thumb" autocomplete="off" data-value="<?php echo $values['thumb']; ?>" value="<?php echo $values['thumb']; ?>"></td>-->
+                <td><?php echo $values['osex']; ?></td>
+                <td><?php echo $values['otele']; ?></td>
+                <td><?php echo $values['obuchong']; ?></td>
+                <!--<td><input name="banner" autocomplete="off" data-value="<?php echo $values['banner']; ?>" value="<?php echo $values['banner']; ?>"></td>-->
+                <!--<td><input name="detail" autocomplete="off" data-value="<?php echo $values['detail']; ?>" value="<?php echo $values['detail']; ?>"></td>-->
+                    <button class="btn btn-danger">拒绝</button></td>
+            </tr>
+
+            <?php }?>
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+</body>
+</html>
+<script src="../../../公共js/jquery-3.4.1.min.js"></script>
+<script>
+    $('tbody').on('click','.btn-danger',function (e) {
+        e.preventDefault();
+        // $id=$(this).closest('tr').attr('id');
+        $id=this.closest('tr').id;
+        $.ajax({
+            type:'POST',
+            url:'onlinedelete.php',
+            dataType:'json',
+            data:{$id},
+            context:this,
+            success:function (res) {
+                if(res.code===200){
+                    console.log(res.msg);
+                    $('#'+$id).remove();
+                }else{
+                    console.log(res.msg)
+                }
+            }
+        })
+    })
+</script>

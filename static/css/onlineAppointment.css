@@ -1,0 +1,322 @@
+.main-img {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.main-img>img {
+    width: 100%;
+}
+
+.main-tittle {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.main-tittle-font {
+    width: 200px;
+}
+
+.tiittle-cn,
+.tittle-en {
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    transition: font-size 0.5s;
+}
+
+.tittle-en {
+    font-size: 14px;
+}
+
+.main-tittle-left,
+.main-tittle-right {
+    border-bottom: 1px solid #d6d6d6;
+    width: calc(50% - 100px);
+}
+
+
+/* 标题结束 */
+
+
+/* 表单开始 */
+
+.form-box {
+    display: flex;
+}
+
+.form-balank {
+    width: 40%;
+}
+
+.form-content {
+    width: 60%;
+    color: rgb(41, 41, 41);
+    font-size: 14px;
+}
+
+.form-font {
+    height: 27px;
+    margin-bottom: 10px;
+}
+
+.form-left {
+    width: 20%;
+    float: left;
+}
+
+.form-list {
+    width: 80%;
+    float: left;
+}
+
+.form-textarea {
+    height: 54px;
+}
+
+input,
+select,
+textarea {
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 4px;
+    outline: none;
+}
+
+select {
+    width: 88px;
+    height: 24px;
+    font-size: 14px;
+}
+
+.form-data>select {
+    width: 70px;
+    margin-right: 6px;
+}
+
+.form-data {
+    display: flex;
+}
+
+.data-img {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../img/OnlineBooking/list.png) no-repeat center center;
+    background-size: cover;
+}
+
+.uese-name {
+    width: 300px;
+}
+
+#sex-nan,
+#sex-nv {
+    margin-right: 6px;
+}
+
+#sex-nv {
+    margin-left: 6px;
+}
+
+.user-sex {
+    display: flex;
+}
+
+.form-auth-code {
+    height: 40px;
+    margin-left: 20%;
+}
+
+.form-user-code {
+    width: 115px;
+    height: 40px;
+    transition: all 0.5s;
+    background-color: rgb(238, 238, 238);
+    opacity: 1;
+}
+
+.form-user-code:hover {
+    opacity: 0.2;
+}
+
+.form-user-code-img {
+    display: block;
+    width: 115px;
+    height: 40px;
+    transition: all 0.8s;
+    background: url(../img/OnlineBooking/captcha-refresh-icon.png) no-repeat center center;
+}
+
+.user-submit {
+    width: 98px;
+    height: 28px;
+    background-color: #333333;
+    color: white;
+}
+
+.user-submit:hover {
+    background-color: #FF6000;
+}
+
+@media (max-width:768px) {
+    .container {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .tittle-en {
+        font-size: 20px;
+    }
+    .tiittle-cn {
+        font-size: 20px;
+    }
+    .form-balank {
+        width: 24px;
+    }
+    .form-content {
+        width: 93%;
+    }
+    .form-left {
+        clear: both;
+        margin-bottom: 2px;
+    }
+    .form-list {
+        clear: both;
+    }
+    .form-font {
+        height: 60px;
+        margin-bottom: 0px;
+    }
+    .form-textarea {
+        height: 80px;
+        clear: both;
+    }
+    .form-auth-code {
+        margin-top: -6px;
+        margin-bottom: 10px;
+        height: 40px;
+        margin-left: 0;
+    }
+    .form-user-code {
+        margin-left: 100px;
+        height: 40px;
+        width: 115px;
+    }
+    .uese-name {
+        width: 90%;
+    }
+}
+
+
+/* 设置电话号码为正整数开始 */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+/* 设置电话号码为正整数结束 */
+
+
+/* 提示开始 */
+
+.tishi {
+    margin-top: -6px;
+    display: none;
+    padding-bottom: 6px;
+}
+
+.font-tishi {
+    display: inline-block;
+    padding: 3px 10px 3px 5px;
+    margin: 0;
+    height: 24px;
+    line-height: 16px;
+    background: #D64A49;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 110px;
+    margin-bottom: 10px;
+    border: 1px solid #D64A49;
+    display: none;
+}
+
+
+/* 提示结束 */
+
+@media (min-width:768px) and (max-width:992px) {
+    .form-balank {
+        width: 10%;
+    }
+    .form-content {
+        width: 80%;
+    }
+    .container {
+        width: 100%;
+    }
+    .form-left {
+        width: 15%;
+    }
+    .form-list {
+        width: 85%;
+    }
+    .uese-name {
+        width: 526px;
+    }
+    .form-auth-code {
+        margin-left: 15%;
+    }
+    .form-user-code {
+        width: 115px;
+    }
+    .main-user-submit {
+        clear: both;
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media (min-width:1170px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+/* 日期按钮开始 */
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+    display: none;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    display: none;
+}
+
+
+/*  日期按钮结束*/

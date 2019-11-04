@@ -1,0 +1,1133 @@
+/*清除默认样式*/
+
+body,
+li,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e40000;
+}
+
+
+/*轮播图部分制作开始*/
+
+
+/*轮播图    图片部分    制作开始*/
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 722px;
+}
+
+.banner_img_box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.banner_img_list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000%;
+    height: 100%;
+}
+
+.banner_img {
+    width: 1536px;
+    height: 722px;
+    float: left;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.img_1 {
+    background-image: url("../img/index/7.jpg");
+}
+
+.img_2 {
+    background-image: url("../img/index/9.jpg");
+}
+
+
+/*轮播图    图片部分    制作结束*/
+
+
+/*轮播图    左右按钮部分    制作开始*/
+
+.banner_button {
+    position: absolute;
+    top: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+}
+
+.button_left {
+    left: 20px;
+}
+
+.left_top {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.25s linear;
+}
+
+.left_top .iconleft {
+    font-size: 25px;
+    color: #fff;
+}
+
+.left_bottom {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.25s linear;
+}
+
+.left_bottom .iconleft {
+    font-size: 25px;
+    color: #fff;
+}
+
+.button_right {
+    right: 20px;
+}
+
+.right_top {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.25s linear;
+}
+
+.right_top .iconzuoyoujiantou1 {
+    font-size: 25px;
+    color: #fff;
+}
+
+.right_bottom {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.25s linear;
+}
+
+.right_bottom .iconzuoyoujiantou1 {
+    font-size: 25px;
+    color: #fff;
+}
+
+
+/*轮播图    左右按钮部分    制作结束*/
+
+
+/*轮播图    轮播点部分    制作开始*/
+
+.banner_dot_box {
+    position: absolute;
+    bottom: 40px;
+    height: 6px;
+}
+
+.banner_dot {
+    width: 44px;
+    height: 6px;
+    background-color: #fff;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.banner_dot_box .active {
+    background-color: #ff6000;
+}
+
+
+/*轮播图    轮播点部分    制作结束*/
+
+
+/*轮播图制作部分结束*/
+
+
+/*内容部分制作开始*/
+
+.content_box {
+    max-width: 1024px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.content {
+    margin: 0 auto;
+}
+
+.content_head {}
+
+.content_title_box {
+    /*height:154px;*/
+    margin-top: 8px;
+    padding: 40px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.content_title_bigtitle {
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 40px;
+    font-family: 微软雅黑;
+    font-size: 36px;
+    color: #3e3e3e;
+}
+
+.content_title_smalltitle {
+    text-align: center;
+    line-height: 24px;
+    color: rgb(128, 128, 128);
+    font-size: 16px;
+}
+
+.content_main_box {
+    height: 342.8px;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+    transition: all 2s linear;
+}
+
+.content_main_img {
+    height: 128px;
+    text-align: center;
+}
+
+.content_main_img>img {
+    max-width: 130px;
+    height: 130px;
+}
+
+.content_main_title {
+    font-family: 宋体;
+    color: #ff6000;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.content_main_line {
+    height: 20.8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_main_line img {
+    height: 1px;
+}
+
+@media screen and (min-width: 1200px) {
+    .banner_img {
+        width: 1536px;
+        height: 100%;
+        float: left;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .content_main {
+        height: 302.8px;
+        padding: 0 4px;
+        box-sizing: border-box;
+        float: left;
+    }
+    .content_main_text {
+        margin: 0 auto;
+        max-width: 160px;
+        padding-top: 10px;
+        font-size: 14px;
+        color: #808080;
+        text-align: center;
+    }
+    .content_middle_title_box {
+        width: 100%;
+        height: 170.71px;
+        margin-top: 50px;
+        overflow: hidden;
+        padding-top: 20px;
+        padding-left: 43px;
+        padding-right: 43px;
+        box-sizing: border-box;
+    }
+    .content_middle_title {
+        height: 41.6px;
+        font-size: 40px;
+        font-family: 微软雅黑;
+        text-align: center;
+        line-height: 41.6px;
+    }
+    .content_middle_line {
+        margin-top: 10px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        opacity: 0.5;
+    }
+    .content_middle_line>img {
+        width: 100%;
+        margin: 20px 0;
+        max-height: 30%;
+    }
+    .companyprofile_box {
+        padding: 0;
+        margin: 0;
+        height: 256.8px;
+        padding-top: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        box-sizing: border-box;
+    }
+    .companyprofile_left {
+        margin: 0;
+        height: 213.1px;
+        padding: 0 5px;
+        box-sizing: border-box;
+        transition: all 2s linear;
+    }
+    .companyprofile_left img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    .companyprofile_right {
+        margin: 0;
+        padding: 0;
+        height: 216.8px;
+        padding-left: 35px;
+        padding-right: 5px;
+        box-sizing: border-box;
+    }
+    .companyprofile_title_box {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        height: 30px;
+        border-bottom: solid 1px #efefef;
+        margin-bottom: 5px;
+    }
+    .companyprofile_title_box a {
+        color: #ff6000;
+        font-family: 微软雅黑;
+        vertical-align: bottom;
+    }
+    .companyprofile_title {
+        font-size: 18px;
+        display: inline-block;
+        float: left;
+    }
+    .companyprofile_more {
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+    }
+    .companyprofile_txt {
+        max-width: 100%;
+        height: 172.9px;
+        margin-top: 15px;
+        overflow: hidden;
+        font-size: 14px;
+        color: #808080;
+    }
+    .txt_kong {
+        height: 24px;
+        width: 100%;
+    }
+    .cosmetology_box {
+        margin: 0;
+        padding: 0;
+        height: 294px;
+        margin-top: 40px;
+        overflow: hidden;
+        padding-top: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        box-sizing: border-box;
+    }
+    .cosmetology_left {
+        padding: 0;
+        margin: 0;
+        height: 195px;
+        padding-right: 30px;
+        padding-left: 5px;
+        box-sizing: border-box;
+    }
+    .cosmetology_left>a:hover {
+        color: #e40000;
+    }
+    .cosmetology_txt_box {
+        max-width: 100%;
+        height: 30px;
+        margin-bottom: 10px;
+        border-bottom: solid 1px #efefef;
+    }
+    .cosmetology_txt_span1 {
+        font-family: 微软雅黑;
+        font-size: 18px;
+        color: #ff6000;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_txt_span2 {
+        display: inline-block;
+        float: right;
+        text-align: center;
+        font-family: century gothic;
+        font-size: 12px;
+        color: #ff6000;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    .cosmetology_row {
+        max-width: 100%;
+        height: 25.4px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        border-bottom: dotted 1px #C1C1C1;
+        margin-bottom: 5px;
+    }
+    .cosmetology_row_span1 {
+        color: #808080;
+        font-size: 14px;
+        line-height: 14px;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_row_span2 {
+        color: #c9c9c9;
+        line-height: 14px;
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+    }
+    .cosmetology_right {
+        padding: 0 5px;
+        box-sizing: border-box;
+    }
+    .cosmetology_right img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    .cosmetology_txt_span1 {
+        font-family: 微软雅黑;
+        font-size: 18px;
+        color: #ff6000;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_txt_span2 {
+        display: inline-block;
+        float: right;
+        text-align: center;
+        font-family: century gothic;
+        font-size: 12px;
+        color: #ff6000;
+        padding: 5px;
+    }
+    .cosmetology_txt_box {
+        width: 589.33px;
+        height: 30px;
+        margin-bottom: 10px;
+        border-bottom: solid 1px #efefef;
+    }
+    .cosmetology_row {
+        width: 588.14px;
+        height: 25.4px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        border-bottom: dotted 1px #C1C1C1;
+        margin-bottom: 5px;
+    }
+    .cosmetology_row_span1 {
+        color: #808080;
+        font-size: 14px;
+        line-height: 14px;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_row_span2 {
+        color: #c9c9c9;
+        line-height: 14px;
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .banner_img {
+        height: 100%;
+        float: left;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .content_middle_title_box {
+        width: 100%;
+        height: 170.71px;
+        margin-top: 50px;
+        overflow: hidden;
+        padding-top: 20px;
+        padding-left: 43px;
+        padding-right: 43px;
+        box-sizing: border-box;
+    }
+    .content_middle_title {
+        height: 41.6px;
+        font-size: 40px;
+        font-family: 微软雅黑;
+        text-align: center;
+        line-height: 41.6px;
+    }
+    .content_middle_line {
+        margin-top: 10px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        opacity: 0.5;
+    }
+    .content_middle_line>img {
+        width: 100%;
+        margin: 20px 0;
+        max-height: 30%;
+    }
+    .companyprofile_box {
+        padding: 0;
+        margin: 0;
+        height: 256.8px;
+        padding-top: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        box-sizing: border-box;
+    }
+    .companyprofile_left {
+        margin: 0;
+        height: 213.1px;
+        padding: 0 5px;
+        box-sizing: border-box;
+    }
+    .companyprofile_left img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    .companyprofile_right {
+        margin: 0;
+        padding: 0;
+        height: 216.8px;
+        padding-left: 35px;
+        padding-right: 5px;
+        box-sizing: border-box;
+    }
+    .companyprofile_title_box {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        height: 30px;
+        border-bottom: solid 1px #efefef;
+        margin-bottom: 5px;
+    }
+    .companyprofile_title_box a {
+        color: #ff6000;
+        font-family: 微软雅黑;
+        vertical-align: bottom;
+    }
+    .companyprofile_title {
+        font-size: 18px;
+        display: inline-block;
+        float: left;
+    }
+    .companyprofile_more {
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+    }
+    .companyprofile_txt {
+        max-width: 100%;
+        height: 172.9px;
+        margin-top: 15px;
+        overflow: hidden;
+        font-size: 14px;
+        color: #808080;
+    }
+    .txt_kong {
+        height: 24px;
+        width: 100%;
+    }
+    .cosmetology_box {
+        margin: 0;
+        padding: 0;
+        height: 294px;
+        margin-top: 40px;
+        overflow: hidden;
+        padding-top: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        box-sizing: border-box;
+    }
+    .cosmetology_left {
+        padding: 0;
+        margin: 0;
+        height: 195px;
+        padding-right: 35px;
+        padding-left: 5px;
+        box-sizing: border-box;
+    }
+    .cosmetology_txt_box {
+        max-width: 100%;
+        height: 30px;
+        margin-bottom: 10px;
+        border-bottom: solid 1px #efefef;
+    }
+    .cosmetology_txt_span1 {
+        font-family: 微软雅黑;
+        font-size: 18px;
+        color: #ff6000;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_txt_span2 {
+        display: inline-block;
+        float: right;
+        text-align: center;
+        font-family: century gothic;
+        font-size: 12px;
+        color: #ff6000;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    .cosmetology_row {
+        max-width: 100%;
+        height: 25.4px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        border-bottom: dotted 1px #C1C1C1;
+        margin-bottom: 5px;
+    }
+    .cosmetology_row_span1 {
+        color: #808080;
+        font-size: 14px;
+        line-height: 14px;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_row_span2 {
+        color: #c9c9c9;
+        line-height: 14px;
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+    }
+    .cosmetology_right {
+        padding: 0 5px;
+        box-sizing: border-box;
+        transition: all 2s linear;
+    }
+    .cosmetology_right img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    .cosmetology_txt_span1 {
+        font-family: 微软雅黑;
+        font-size: 18px;
+        color: #ff6000;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_txt_span2 {
+        display: inline-block;
+        float: right;
+        text-align: center;
+        font-family: century gothic;
+        font-size: 12px;
+        color: #ff6000;
+        padding: 5px;
+    }
+    .cosmetology_txt_box {
+        width: 589.33px;
+        height: 30px;
+        margin-bottom: 10px;
+        border-bottom: solid 1px #efefef;
+    }
+    .cosmetology_row {
+        width: 588.14px;
+        height: 25.4px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        border-bottom: dotted 1px #C1C1C1;
+        margin-bottom: 5px;
+    }
+    .cosmetology_row_span1 {
+        color: #808080;
+        font-size: 14px;
+        line-height: 14px;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_row_span2 {
+        color: #c9c9c9;
+        line-height: 14px;
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .banner_img {
+        height: 100%;
+        float: left;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .banner_button {
+        display: none;
+    }
+    .banner_dot_box {
+        display: none;
+    }
+    .content_middle_title_box {
+        margin: 0;
+        bottom: 0;
+        max-width: 100%;
+        height: 170.71px;
+        padding-top: 75px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    .content_middle_title {
+        height: 41.6px;
+        font-size: 40px;
+        font-family: 微软雅黑;
+        text-align: center;
+        line-height: 41.6px;
+    }
+    .content_middle_line {
+        margin-top: 10px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        opacity: 0.5;
+    }
+    .content_middle_line>img {
+        width: 100%;
+        margin: 20px 0;
+        max-height: 30%;
+    }
+    .companyprofile_box {
+        margin: 0;
+        padding: 0;
+        padding-top: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    .companyprofile_left {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        margin-top: 10px;
+        overflow: hidden;
+        text-align: center;
+    }
+    .companyprofile_left img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    .companyprofile_right {
+        padding-left: 5px;
+        padding-right: 5px;
+        box-sizing: border-box;
+    }
+    .companyprofile_title_box {
+        height: 30px;
+        border-bottom: solid 1px #efefef;
+    }
+    .companyprofile_title_box a {
+        color: #ff6000;
+        font-family: 微软雅黑;
+        vertical-align: bottom;
+    }
+    .companyprofile_title {
+        font-size: 18px;
+        display: inline-block;
+        float: left;
+    }
+    .companyprofile_more {
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+    }
+    .companyprofile_txt {
+        width: 100%;
+        margin-top: 10px;
+        overflow: hidden;
+        font-size: 14px;
+        color: #808080;
+    }
+    .txt_kong {
+        height: 24px;
+        width: 100%;
+    }
+    .cosmetology_box {
+        min-height: 274px;
+        margin: 0;
+        padding-top: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    .cosmetology_left {
+        margin: 0;
+        padding: 0;
+    }
+    .cosmetology_txt_box {
+        width: 100%;
+        height: 35px;
+        margin-bottom: 10px;
+        border-bottom: solid 1px #efefef;
+    }
+    .cosmetology_row {
+        width: 100%;
+        height: 34.4px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        border-bottom: 1px dotted #c1c1c1;
+        margin-bottom: 5px;
+    }
+    .cosmetology_row_last {
+        border-bottom: none;
+    }
+    .cosmetology_txt_span1 {
+        font-family: 微软雅黑;
+        font-size: 18px;
+        color: #ff6000;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_txt_span2 {
+        display: inline-block;
+        float: right;
+        text-align: center;
+        font-family: century gothic;
+        font-size: 12px;
+        color: #ff6000;
+        padding: 5px;
+    }
+    .cosmetology_row_span1 {
+        color: #808080;
+        font-size: 14px;
+        line-height: 14px;
+        display: inline-block;
+        float: left;
+        padding-bottom: 5px;
+    }
+    .cosmetology_row_span2 {
+        color: #c9c9c9;
+        line-height: 14px;
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+    }
+    .cosmetology_right {
+        margin: 0;
+        padding: 0;
+    }
+    .cosmetology_right img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .banner_img {
+        height: 100%;
+        float: left;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .banner_button {
+        display: none;
+    }
+    .banner_dot_box {
+        display: none;
+    }
+    .content_title_box {
+        margin: 0;
+        padding: 25px 15px 18px 15px;
+        box-sizing: border-box;
+    }
+    .content_title_bigtitle {
+        margin-bottom: 10px;
+        text-align: center;
+        line-height: 40px;
+        font-family: 微软雅黑;
+        font-size: 24px;
+        color: #3e3e3e;
+    }
+    .content_title_smalltitle {
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+        line-height: 24px;
+        color: rgb(128, 128, 128);
+        font-size: 14px;
+    }
+    .content_main_box {
+        margin: 0;
+        padding-top: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+    }
+    .content_main {
+        margin-top: 10px;
+        padding: 0 4px;
+        box-sizing: border-box;
+        float: left;
+        overflow: hidden;
+    }
+    .content_main_img {
+        height: 150px;
+        text-align: center;
+    }
+    .content_main_img>img {
+        max-width: 130px;
+        height: 130px;
+    }
+    .content_main_text {
+        width: 70%;
+        margin: 0 auto;
+        font-size: 14px;
+        color: #808080;
+        text-align: left;
+    }
+    .content_middle_title_box {
+        margin-top: 0px;
+        overflow: hidden;
+        padding-top: 75px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    .content_middle_title {
+        font-size: 26px;
+        font-family: 微软雅黑;
+        text-align: center;
+    }
+    .content_middle_line {
+        margin-top: 10px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        opacity: 0.5;
+    }
+    .content_middle_line>img {
+        width: 100%;
+        margin: 20px 0;
+        max-height: 30%;
+    }
+    .companyprofile_box {
+        margin: 0;
+        padding: 0;
+        padding-top: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    .companyprofile_left {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-align: center;
+    }
+    .companyprofile_left img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    .companyprofile_right {
+        padding-left: 5px;
+        padding-right: 5px;
+        box-sizing: border-box;
+    }
+    .companyprofile_title_box {
+        height: 30px;
+        border-bottom: solid 1px #efefef;
+    }
+    .companyprofile_title_box a {
+        color: #ff6000;
+        font-family: 微软雅黑;
+        vertical-align: bottom;
+    }
+    .companyprofile_title {
+        font-size: 14px;
+        display: inline-block;
+        float: left;
+    }
+    .companyprofile_more {
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+    }
+    .companyprofile_txt {
+        width: 100%;
+        margin-top: 10px;
+        overflow: hidden;
+        font-size: 14px;
+        color: #808080;
+    }
+    .txt_kong {
+        height: 24px;
+        width: 100%;
+    }
+    .cosmetology_box {
+        min-height: 274px;
+        margin: 0;
+        padding-top: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    .cosmetology_left {
+        margin: 0;
+        padding: 0;
+    }
+    .cosmetology_txt_box {
+        width: 100%;
+        height: 35px;
+        margin-bottom: 10px;
+        border-bottom: solid 1px #efefef;
+    }
+    .cosmetology_row {
+        width: 100%;
+        height: 34.4px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        border-bottom: 1px dotted #c1c1c1;
+        margin-bottom: 5px;
+    }
+    .cosmetology_row_last {
+        border-bottom: none;
+    }
+    .cosmetology_txt_span1 {
+        font-family: 微软雅黑;
+        font-size: 14px;
+        color: #ff6000;
+        display: inline-block;
+        float: left;
+    }
+    .cosmetology_txt_span2 {
+        display: inline-block;
+        float: right;
+        text-align: center;
+        font-family: century gothic;
+        font-size: 12px;
+        color: #ff6000;
+        padding: 5px;
+    }
+    .cosmetology_row_span1 {
+        color: #808080;
+        font-size: 14px;
+        line-height: 14px;
+        display: inline-block;
+        float: left;
+        padding-bottom: 5px;
+    }
+    .cosmetology_row_span2 {
+        color: #c9c9c9;
+        line-height: 14px;
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+    }
+    .cosmetology_right {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        max-width: 100%;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+    .cosmetology_right img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+}
+
+.cosmetology_row>a:hover {
+    color: #e40000;
+}

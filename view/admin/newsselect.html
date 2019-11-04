@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+<ol class="breadcrumb">
+    <li >首页</li>
+    <li style="color:#337ab7">新闻查看</li>
+</ol>
+<div id='table' class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>新闻标题</th>
+                <th>新闻作者</th>
+                <th>上传时间</th>
+                <th>新闻内容</th>
+                <!--<th>新闻图片</th>-->
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            foreach($result as $key=>$values){
+            ?>
+
+            <tr id="<?php echo $values['id']; ?>">
+
+                <!--<select name="cid" id="">-->
+                    <!--<option value="<?php echo $value['cid'] ?>"><?php echo $value['cname']?></option></select>-->
+                <td><?php echo $values['wname']; ?></td>
+                <td><?php echo $values['wwhiter']; ?></td>
+                <td><?php echo $values['wdate']; ?></td>
+                <td><?php echo $values['wcontent']; ?></td>
+                <!--<td><img src="<?php echo $values['wpic']; ?>" alt="失败" width="100px"></td>-->
+                <td><a class="btn btn-warning" href="newsupdate.php?id=<?php echo $values['id'];?>">编辑</a>
+                <button class="btn btn-danger">删除</button></td>
+            </tr>
+
+
+            <?php
+            }
+            ?>
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+</body>
+</html>
+<script src="../../../公共js/jquery-3.4.1.min.js"></script>
+<script>
+    $('tbody').on('click','.btn-danger',function (e) {
+        e.preventDefault();
+        // $id=$(this).closest('tr').attr('id');
+        $id=this.closest('tr').id;
+        $.ajax({
+            type:'POST',
+            url:'newsdelete.php',
+            dataType:'json',
+            data:{$id},
+            context:this,
+            success:function (res) {
+                if(res.code===200){
+                    console.log(res.msg);
+                    $('#'+$id).remove();
+                }else{
+                    console.log(res.msg)
+                }
+            }
+        })
+    })
+</script>

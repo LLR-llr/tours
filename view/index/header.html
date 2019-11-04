@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1343159_qo45xekm86b.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/public.css">
+
+    <title>爱旅行</title>
+</head>
+
+<body>
+<!-- 导航开始 -->
+<!-- 顶部导航 开始 -->
+<nav>
+    <div class="nav-box">
+        <div class="navl">
+            <img src="../static/img/common/logo.jpg" alt="">
+        </div>
+        <ul class="navr navr1">
+            <?php foreach($rel as $value){?>
+            <a href=" category.php?id=<?php echo $value['id']; ?>">
+            <li class="index zo" ><?php echo $value['nname']?>
+            </li>
+            </a>
+            <?php }?>
+        </ul>
+    </div>
+</nav>
+<!-- 顶部导航 结束 -->
+<!-- 屏幕滚动出现 开始 -->
+<nav class="xiala-nav">
+    <div class="nav-box">
+        <div class="navl">
+            <img src="../static/img/common/logo.jpg" alt="">
+        </div>
+        <ul class="navr navr2">
+            <?php foreach($rel as $value){?>
+            <a href=" category.php?id=<?php echo $value['id']; ?>">
+                <li class="zo " ><?php echo $value['nname']?>
+                </li>
+            </a>
+            <?php }?>
+        </ul>
+    </div>
+</nav>
+<!-- 屏幕滚动出现 结束 -->
+<!-- 屏幕缩小后出现的下拉列表 开始 -->
+<a href="#">
+    <div class="nav-list">
+        <div class="shouy">首页</div>
+        <div class="shouy-xiala">∨</div>
+    </div>
+</a>
+<ul class="xialakuang" style="display: none;">
+    <?php foreach($rel as $value){?>
+    <a href=" category.php?id=<?php echo $value['id']; ?>">
+        <li class="index zo" ><?php echo $value['nname']?>
+        </li>
+    </a>
+    <?php }?>
+</ul>
+<!-- 屏幕缩小后出现的下拉列表 结束 -->
+
+<!-- 导航结束 -->

@@ -1,0 +1,99 @@
+
+    <link rel="stylesheet" href="../static/css/list.css">
+
+
+    <!-- <div style=" height:1400px;background:cadetblue; "></div> -->
+    <div class=" container ">
+        <!-- 头部轮播开始 -->
+        <div class=" banner ">
+            <div class=" banner-img ">
+                <img src="../static/img/list/6.jpg " alt=" ">
+            </div>
+        </div>
+    </div>
+    <!-- 头部轮播结束 -->
+    <!-- 关于开始 -->
+    <div class=" container line-both ">
+        <div class=" aboutus ">
+            <div class='line'></div>
+            <div class=" guanyu ">
+                <div class=" zhongwen ">周边中心</div>
+                <div class=" yingwen ">Products</div>
+            </div>
+            <div class=" line "></div>
+        </div>
+    </div>
+    <!-- 关于结束 -->
+    <!-- 列表开始 -->
+    <div class=" container ">
+        <div class=" index-product ">
+            <div class=" guide ">
+                <ul class=" guide-box ">
+                    <?php
+                    $sql="select * from category";
+                    $cate2=$mysql->query($sql)->fetch_all(MYSQLI_ASSOC);
+                    $cate=[["cname"=>"精选",'cid'=>'-1']];
+                    $cate=array_merge($cate,$cate2);
+                    $sql2="select * from goods";
+                    $goods=$mysql->query($sql2)->fetch_all(MYSQLI_ASSOC);
+                    $count=count($cate);
+                    for($i=0;$i<$count;$i++){
+                    if($i==0){
+                    $cate[$i]['goods']=$goods;
+                    continue;
+                    }
+                    $catelist=$cate[$i];
+                    $id=$catelist['cid'];
+                    $goodslist=array_filter($goods,function($v) use($id){
+                    return $v['cid']==$id;
+                    });
+                    $cate[$i]['goods']=$goodslist;
+
+                    }
+
+                    foreach($cate as $v){
+
+                    ?>
+
+                    <li class=" guide-smbox ">
+                        <?php echo $v['cname'];?> &nbsp|
+
+                    </li>
+                    <?php }?>
+
+                </ul>
+                <div class=" contant-box ">
+                    <?php foreach($cate as $v){?>
+                    <div class=" contant " >
+                        <?php foreach($v['goods'] as $value){
+                        ?>
+                        <a href="goods.php?gid=<?php echo $value['gid']?>">
+                            <div class=" contant-imgs ">
+                                <img src=" <?php echo $value['thumb']?>" alt=" ">
+                                <div class=" wenzis ">
+                                    <?php echo $value['name']?>…
+                                </div>
+                                <div class=" prices ">
+                                    ¥<?php echo $value['sale']?>
+
+                                </div>
+                            </div>
+                        </a>
+<?php }?>
+
+                    </div>
+                    <?php  }?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 列表结束 -->
+
+
+    <!-- 箭头--置顶 -->
+    <div class=" zhiding ">ʌ</div>
+</body>
+
+</html>
+<script src="../static/js/list.js "></script>
+<script src="../static/js/public.js "></script>

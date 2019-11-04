@@ -1,0 +1,99 @@
+
+    <link rel="stylesheet" href="../static/css/xiangqing.css">
+
+
+<!-- 头部结束 -->
+<!-- 轮播图开始 -->
+<div class="contsiner">
+    <div class="row">
+        <div class="banner col-lg-12">
+            <img src="../static/img/xiangqing/banner.jpg" alt="">
+        </div>
+    </div>
+</div>
+<!-- 轮播图结束 -->
+<!-- 大字开始 -->
+<div class="contsiner">
+    <div class="row">
+        <div class="hezi col-lg-12">
+            <div class="zi col-lg-12"><?php echo $name?></div>
+        </div>
+    </div>
+</div>
+<!-- 大字结束 -->
+<!-- 正文开始 -->
+<div class="contont ">
+    <div class="container">
+        <div class="row">
+
+            <div class="contont1">
+                <div class="kontont left col-lg-6 col-md-12 col-xs-12">
+                    <div class="left-kuang">
+                        <div class="img-box">
+                            <ul class="img-ul">
+                                <?php $arr=explode(',',$str);
+
+?>
+                                <?php for($i=0;$i<count($arr);$i++){?>
+                                <li class="tupian"><img style="border-radius: 10px" src="<?php echo $arr[$i]?>" alt=""></li>
+                        <?php }?>
+                            </ul>
+                        </div>
+
+                        <div class="btn btn-left"></div>
+                        <div class="btn btn-right"></div>
+                        <!-- <div class="dot"> -->
+                        <div class="dot-dot">
+                            <div class="diandian"></div>
+                            <div class="diandian"></div>
+                            <div class="diandian"></div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="kontont right col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="scj"> <span>原价:￥<?php echo $mprice?></span></div>
+
+                    <div class="lsj"><span>现价
+                            <stuly class="qwe">
+                                <strong style="color: red;">￥<?php echo $sale?></strong></span>
+                        </stuly>
+                    </div>
+                    <div class="ls"><span>剩余空位：<?php echo $stock?></span></div>
+                </div>
+            </div>
+            <div class="goods col-md-12 col-sm-12 col-xs-12">
+                <div class="sp"><span>景点介绍</span></div>
+                <div class="sp1">
+                    <span><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $detail?>
+                        </span>
+                </div>
+                <div class="sp2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8世纪新加坡属室利佛逝；14世纪始属于拜里米苏拉建立的马六甲苏丹王朝；18-19世纪属柔佛王国。19世纪初被英国占为殖民地；1942年2月15日，新加坡被日本侵占；1963年加入马来西亚；1965年新加坡正式独立。 新加坡是一个多元文化的移民国家，促进种族和谐是政府治国的核心政策，新加坡以稳定的政局、廉洁高效的政府而著称，是全球最国际化的国家之一。 新加坡是一个发达的资本主义国家，被誉为“亚洲四小龙”之一，其经济模式被称作为“国家资本主义”。根据2018年的全球金融中心指数（GFCI）排名报告，新加坡是继伦敦、纽约、香港之后的第四大国际金融中心
+                    。新加坡也是亚洲重要的服务和航运中心之一，被GaWC评为世界一线城市第五位 。新加坡是东南亚国家联盟（ASEAN）成员国之一，也是世界贸易组织（WTO）、英联邦（The Commonwealth）以及亚洲太平洋经济合作组织（APEC）成员经济体之一。
+                    <br/>
+                    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新加坡——起航滨海湾。
+                    <br/>
+                    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滨海湾是新加坡政府斥重金精心打造的旅游度假胜地，已成为狮城最新的城市象征，它在新加坡丰富多样的城市组成中迅速成为一个顶级处所，促使滨海湾在文化、娱乐和商业方面变成一个地理上的热点。
+                    <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个梦开始的地方，一座乐不思蜀的快乐岛。
+                    <br/>
+                    <br/>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- 箭头--置顶 -->
+<div class="zhiding">ʌ</div>
+
+<body>
+
+</body>
+
+</html>
+<script src="../static/js/public.js"></script>
+<script src="../static/js/xiangqing.js"></script>

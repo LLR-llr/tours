@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+<ol class="breadcrumb">
+    <li >首页</li>
+    <li style="color:#337ab7">商品添加</li>
+</ol>
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail6">商品所属分类</label>
+        <select class="form-control" id="exampleInputEmail6" name="cid">
+            <?php  foreach($result as $value){ ?>
+            <option value="<?php echo $value['cid'] ?>"><?php echo $value['cname']?></option>
+            <?php }?>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">商品名称</label>
+        <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="商品名称">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">市场价格</label>
+        <input name='mprice' type="number" class="form-control" id="exampleInputPassword1" placeholder="市场价格">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword3">零售价格</label>
+        <input name='sale' type="number" class="form-control" id="exampleInputPassword3" placeholder="零售价格">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword4">库存</label>
+        <input name='stock' type="number" class="form-control" id="exampleInputPassword4" placeholder="库存">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword5">商品详情</label>
+        <textarea name='detail' class="form-control" id="exampleInputPassword5" placeholder="商品详情"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail7">商品缩略图 <span>比例：1*1 最佳尺寸：50*50</span></label>
+        <input type="file" accept="image/*" class="form-control" id="exampleInputEmail7" placeholder="商品名称">
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="thumb" id="tin" >
+        <!--<label style="visibility: hidden">商品缩略图</label>-->
+        <img src="" alt="" id="imgs" width="50px">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail8">商品轮播图</label>
+        <input type="file" multiple  class="form-control" id="exampleInputEmail8" placeholder="商品名称">
+    </div>
+    <div class="form-group" id="banner">
+        <input name="banner" type="hidden">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</body>
+</html>
+<script src="../../../公共js/jquery-3.4.1.min.js"></script>
+<script>
+     // change(值改变并且失去焦点)  input  focus blur
+    $('input[id=exampleInputEmail7]').on('change',function(e){
+        // console.log(this.files[0]);
+        let file=this.files[0];
+        // $('#imgs').attr('src',URL.createObjectURL(file));
+        // let fileread=new FileReader();
+        // fileread.readAsDataURL(file);
+        // fileread.onload=function (ev) {
+        //     let result=ev.currentTarget.result;
+        //     $('#imgs').attr('src',result);
+        // }
+        // console.log(file);
+        let formdata=new FormData();
+        formdata.append('file',file);
+
+        let promise = new Promise(function (resolve,reject) {
+            $.ajax({
+                type:'POST',
+                url:'upload.php',
+                data:formdata,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                context:this,
+                success:function (res) {
+                    if(res.code===200){ resolve(res)}else{
+                        reject(res)
+                    }
+
+                    // $('#imgs').attr('src',res.src);
+                    // // $('#tin')[0].value=res.src;
+                    // $('input[name=thumb]').val(res.src);
+                }
+            })
+        });
+        promise.then(function (res) {
+            $('#imgs').attr('src',res.src);
+            // $('#tin')[0].value=res.src;
+            $('input[name=thumb]').val(res.src);
+        },function (res) {
+            console.log(res.msg)
+        })
+
+    });
+
+    $('input[id=exampleInputEmail8]').on('change',function () {
+        let file=this.files;
+        for ($i=0;$i<file.length;$i++){
+            let formdata=new FormData();
+            formdata.append('file',file[$i]);
+            let promise=new Promise(function (resolve,reject) {
+                $.ajax({
+                    type:'POST',
+                    url:'upload.php',
+                    dataType:'json',
+                    data:formdata,
+                    contentType:false,
+                    processData:false,
+                    context:this,
+                    success:function (res) {
+                        if(res.code===200){
+                            resolve(res)
+                        }else{
+                            reject(res)
+                        }
+
+                    }
+                })
+            })
+            promise.then(function (res) {
+                $('<img class="bbanner">').appendTo('#banner').attr('src',res.src).css('width',100);
+                $('input[name=banner]').val(function(index,value){
+                    return value+res.src+','
+                });
+            },function (res) {
+                console.log(res.msg)
+            })
+        }
+
+       // $r= $('input[name=banner]').val($('input[name=banner]').val().substr());
+       //  setTimeout(function () {
+       //      let r=$('input[name=banner]')[0].value
+       //      $('input[name=banner]').val(r.slice(0,-1));
+       //  },1000)
+
+    })
+
+    $('form').on('submit',function (e) {
+        e.preventDefault();
+        let qs=new FormData(this);
+        qs.set('banner',qs.get('banner').slice(0,-1));
+        $.ajax({
+            type:'POST',
+            url:'goodsinsert.php',
+            dataType:'json',
+            // data:$(this).serialize(),
+            data:qs,
+            processData:false,
+            contentType:false,
+            context:this,
+            success:function (res) {
+                if(res.code===200){
+                    // console.log(res);
+                    // console.log($(this).serialize(),);
+                    // console.log(res.msg);
+                    this.reset();
+                    $('#imgs').attr('src',null);
+                    $('.bbanner').attr('src',null)
+                }else{
+                    console.log(res.msg)
+                }
+            }
+        })
+    })
+</script>

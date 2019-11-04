@@ -1,0 +1,182 @@
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* 头部轮播开始 */
+
+.container {
+    padding: 0 73px;
+}
+
+.banner {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.banner-img>img {
+    width: 100%;
+}
+
+
+/* 头部轮播结束 */
+
+
+/* 关于开始 */
+
+.aboutus {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+.aboutus>.line {
+    width: 40%;
+    height: 1px;
+    border-bottom: solid 1px #d6d6d6;
+}
+
+.guanyu>.zhongwen {
+    font-size: 32px;
+    transition: font-size 0.5s;
+}
+
+.guanyu>.yingwen {
+    font-size: 14px;
+    color: #a5a5a5;
+    text-align: center;
+    transition: font-size 0.5s;
+}
+
+
+/* 关于结束 */
+
+
+/* 列表开始 */
+
+.index-product {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.guide {
+    height: 43px;
+}
+
+.guide-box {
+    position: relative;
+    height: 43px;
+    border-bottom: solid 3px #63b7e3;
+}
+
+.guide-smbox {
+    width: 62px;
+    padding: 13px 0;
+    box-sizing: border-box;
+    margin-left: 1px;
+    text-align: center;
+    font-size: 12px;
+    float: left;
+}
+
+.contant {
+    width: 1024px;
+    margin-top: 50px;
+    display: block;
+
+}
+
+.contant-imgs {
+    width: 210px;
+    height: 250px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    float: left;
+}
+
+.contant-imgs img {
+    width: 100%;
+    height: 160px;
+}
+
+
+
+
+.active {
+    display: none;
+}
+
+
+
+.wenzis {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    /* display: flex; */
+}
+
+.prices {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    float: left;
+    color: #f60;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width:1200px) and (min-width:992px) {
+    .container {
+        width: 1024px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .aboutus {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    .container {
+        padding: 0;
+    }
+    .line-both {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+    .aboutus {
+        padding: 0;
+    }
+    .contant-imgs {
+        clear: both;
+    }
+    .contant {
+        padding: 0 30%;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .guanyu>.zhongwen {
+        font-size: 20px;
+        transition: all 2s;
+    }
+    .guanyu>.yingwen {
+        font-size: 20px;
+        transition: all 2s;
+    }
+    .kongbai {
+        display: block;
+        height: 700px;
+    }
+}
+
+
+/* 列表结束 */

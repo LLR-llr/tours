@@ -1,0 +1,231 @@
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.head {
+    width: 100%;
+    height: 90px;
+    background-color: black;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+}
+
+.hezi {
+    width: 100%;
+    height: 82px;
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.font {
+    width: 394px;
+    height: 42px;
+    margin: 0 auto;
+    line-height: 42px;
+}
+
+.zi {
+    width: 100%;
+    height: 42px;
+    margin: 0 auto;
+    font-size: 32px;
+    font-family: "微软雅黑";
+    line-height: 42px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width:768px) {
+    .zi {
+        font-size: 20px;
+        line-height: 60px;
+    }
+}
+
+.box {
+    width: 100%;
+    height: 821px;
+}
+
+.contont {
+    /* width: 1024px; */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.contont1 {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* .kontont {
+        /* width: 482px; */
+
+
+/* height: 325px; */
+
+
+/* .contont1>.left {
+        margin: 0 auto;
+    } */
+
+.left-kuang {
+    position: relative;
+    width: 300px;
+    height: 325px;
+    margin: 0 auto;
+}
+
+.img-box {
+    position: relative;
+    width: 240px;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.img-ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1000%;
+    height: 100%;
+}
+
+.img-ul>li {
+    width: 240px;
+    height: 300px;
+    float: left;
+    border-radius: 10px;
+}
+
+.img-ul>li>img {
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    position: absolute;
+    top: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    z-index: 0;
+}
+
+.btn-left {
+    left: 0;
+    background-image: url(../img/xiangqing/5.png);
+}
+
+.btn-right {
+    right: 0;
+    background-image: url(../img/xiangqing/5.png);
+    background-position: -30px 0;
+}
+
+.dot {
+    position: relative;
+    width: 300px;
+    height: 25px;
+    float: left;
+}
+
+.dot-dot {
+    height: 30px;
+    width: 30px;
+    margin: 0 auto;
+}
+
+.diandian {
+    float: left;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid;
+    margin: 0px 1px;
+}
+
+.select {
+    background-color: red;
+}
+
+.right {
+    font-size: 16px;
+    font-family: "微软雅黑";
+}
+
+.scj {
+    width: 100%;
+    height: 25px;
+    margin-top: 10px;
+    color: #808080;
+    font-size: 14px;
+}
+
+.lsj {
+    width: 100%;
+    height: 30px;
+    margin-top: 25px;
+    color: #808080;
+}
+
+.qwe {
+    font-size: 26px;
+}
+
+.ls {
+    width: 100%;
+    height: 25px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.sp {
+    font-size: 22px;
+    font-family: "微软雅黑";
+    /* padding-left: 39px; */
+}
+
+.sp1 {
+    font-size: 16px;
+    font-family: "微软雅黑";
+    /* padding-left: 39px; */
+    margin-top: 10px;
+}
+
+.sp2 {
+    font-size: 16px;
+    font-family: "微软雅黑";
+    /* padding-left: 39px; */
+    margin-top: 15px;
+}
+
+.goods {
+    width: 100%;
+    overflow: hidden;
+}
+
+@media screen and (max-width:768px) {}
+
+@media screen and (max-width:992px) {
+    /* .img-box {
+        width: 500px;
+        height: 600px;
+    }
+    .img-ul>li {
+        width: 500px;
+        height: 600px;
+    }
+    .btn */
+}

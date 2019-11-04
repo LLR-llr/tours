@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看导航</title>
+    <link rel="stylesheet" href="../../../公共css/bootstrap.min.css">
+</head>
+<style>
+    tbody input{
+        border: none;
+        background-color: transparent;
+    }
+
+</style>
+<body>
+<ol class="breadcrumb">
+    <li >首页</li>
+    <li style="color:#337ab7">导航查看</li>
+</ol>
+<div id='table' class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>中文名称</th>
+                <th>英文名称</th>
+                <th>排序</th>
+                <th>栏目模板</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            foreach($result as $key=>$values){
+            ?>
+            <tr id="<?php echo $values['id']; ?>">
+            <td><input name="nname" autocomplete="off" data-value="<?php echo $values['nname']; ?>" value="<?php echo $values['nname']; ?>"></td>
+            <td><input name="ename" autocomplete="off" data-value="<?php echo $values['ename']; ?>" value="<?php echo $values['ename']; ?>"></td>
+            <td><input name="nsort" autocomplete="off" data-value="<?php echo $values['nsort']; ?>" value="<?php echo $values['nsort']; ?>"></td>
+            <td><input name="ntpl" autocomplete="off" data-value="<?php echo $values['ntpl']; ?>" value="<?php echo $values['ntpl']; ?>"></td>
+            <td><button class="btn btn-danger">删除</button></td>
+            </tr>
+
+
+            <?php
+            }
+            ?>
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+</body>
+</html>
+<script src="../../../公共js/jquery-3.4.1.min.js"></script>
+<script>
+    $('tbody').on('click','.btn-danger',function (e) {
+        e.preventDefault();
+        $id=$(this).closest('tr').attr('id');
+        console.log($id);
+        $.ajax({
+            type:'POST',
+            url:'navdelete.php',
+            dataType:'json',
+            data:{$id},
+            success:function (res) {
+                if(res.code===200){
+                    $('#'+$id).remove();
+                    console.log(res.msg)
+                }else{
+                    console.log(res.msg)
+                }
+            }
+        })
+    });
+    $('tbody').on('blur','input',function (e) {
+        e.preventDefault();
+        let value=this.value.trim();
+        let id=$(this).closest('tr').attr('id');
+        let name=this.name;
+        let oldvalue=this.dataset.value;
+        // console.log(id,name,value,oldvalue);
+         value.length && value!=oldvalue && $.ajax({
+            type:'POST',
+            url:'navupdate.php',
+            dataType: 'json',
+            data:{id,name,value},
+            context:this,
+            success:function (res) {
+                if(res.code===200){
+                    console.log(res.msg)
+                }else{
+                    console.log(res.msg);
+                    this.value=oldvalue
+                }
+            }
+        });
+        value.length || (this.value=oldvalue);
+    })
+
+</script>

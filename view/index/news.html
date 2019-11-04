@@ -1,0 +1,110 @@
+
+    <link rel="stylesheet" href="../static/css/news.css">
+
+    <div class="container">
+        <div class="row">
+            <!-- banner开始 -->
+            <div class="banner-img">
+                <img src="../static/img/news/10.jpg" alt="">
+            </div>
+            <!-- banner结束 -->
+            <!-- 分割线开始 -->
+            <div class="aboutus">
+                <div class='line'></div>
+                <div class="guanyu">
+                    <div class="zhongwen">出行贴士</div>
+                    <div class="yingwen">Tip</div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <!-- 分割线结束 -->
+            <!-- 新闻开始 -->
+            <div class="newsall">
+                <?php
+                $sql="select * from news";
+                $rel=$mysql->query($sql)->fetch_all(MYSQLI_ASSOC);
+                foreach($rel as $v){
+                ?>
+
+                <div class="news-every">
+                    <div class="detail" ><a href="#<?php echo $v['id']?>"><?php echo $v['wname']?></a></div>
+                    <span><?php echo $v['wdate']?></span>
+                </div>
+<?php }?>
+            </div>
+            <!-- 新闻结束 -->
+            <!-- 隐藏页开始 -->
+
+
+            <?php foreach($rel as $v){?>
+            <div class="hidden-news" id="<?php echo $v['id'];?>">
+                <h2><?php echo $v['wname']?></h2>
+                <div class="fabusj">发布时间：<?php echo $v['wdate']?></div>
+                <p>　　<?php echo $v['wcontent']?></p>
+                <p>　　在漫长的岁月里，桂林的奇山秀水吸引着无数的文人墨客，使他们写下了许多脍炙人口的诗篇和文章，刻下了两千余件石刻和壁书，历史还在这里留下了许多古迹遗址。 桂林山水有奇丽俊秀的风貌，</p>
+                <p>　　宏伟博大的气势，气象万千的姿态，含蓄深长的意趣，极富浪漫色彩和诗画情趣。中唐时已是名闻全国的风景胜地，桂林山水甲天下的赞语流传古今。</p>
+                <p>　　1982年定为全国重点风景名胜区。桂林风景资源十分丰富，尤以山水取胜。唐朝诗人韩愈的“江作青罗带，山如碧玉簪”的诗句，是桂林山水的最佳写照。而簪山、带水、幽洞、奇石，历来被誉为桂林风景的四绝，其山水洞石浑然一体的景象组合，举世无双。烟雨、光影、植物、动物、田园、村舍、名园、古迹，则被称为桂林风景的八胜。这些胜、绝的风景因素融合成各具特色的16个风景区和数百个风景点。
+                </p>
+                <?php
+            $id=$v['id'];
+            $sql2="select * from news where id<$id order by id desc limit 0,1;";
+            $sql3="select * from news where id>$id order by id asc limit 0,1;";
+            $pre=$mysql->query($sql2)->fetch_assoc();
+                $aft=$mysql->query($sql3)->fetch_assoc();
+                ?>
+                <div>上一篇：<a href="#<?php echo $pre['id']?>"><?php echo $pre['wname']?$pre['wname']:'没有了';?></a></div>
+                <div>下一篇：<a href="#<?php echo $aft['id']?>"><?php echo $aft['wname']?$aft['wname']:'没有了';?></a></div>
+                <div class="back">返回列表</div>
+
+            </div>
+            <?php }?>
+            <!-- 隐藏页结束 -->
+            <!-- 底部图片开始 -->
+            <div class="container bottom">
+                <div class="banner-img">
+                    <img src="../static/img/news/4.jpg" alt="">
+                </div>
+            </div>
+            <!-- 底部图片结束 -->
+        </div>
+    </div>
+
+
+    <!-- 箭头--置顶 -->
+    <div class="zhiding">ʌ</div>
+</body>
+
+</html>
+    <script src="../../../公共js/jquery-3.4.1.min.js"></script>
+<script>
+
+    var back = document.querySelectorAll('.back');
+    var news=document.querySelectorAll('.detail>a');
+    for(let j=0;j<news.length;j++){
+        news[j].onmouseover=function(){
+            news[j].style.color='red'
+        }
+        news[j].onmouseout=function(){
+            news[j].style.color='#333333'
+        }
+    }
+    for($i=0;$i<back.length;$i++){
+
+
+        back[$i].onclick = function() {
+            location.replace(location.pathname+location.search);
+        }
+    }
+    $(function () {
+        $(window).on('hashchange', function () {
+            let hash = location.hash;
+            $('.news-every').css('display','none');
+            $('.hidden-news').css('display','none').filter(hash).css('display','block')
+        });
+    });
+
+
+
+</script>
+
+<script src="../static/js/public.js"></script>

@@ -1,0 +1,102 @@
+.row{
+    user-select: none;
+}
+.banner-img{
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.banner-img>img{
+    width: 100%;
+}
+.aboutus{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:40px auto;
+}
+.aboutus>.line{
+    width:40%;
+    height:1px;
+    border-bottom: solid 1px #d6d6d6;
+}
+.guanyu>.zhongwen{
+    font-size: 32px;
+    transition: font-size 0.5s;
+}
+.guanyu>.yingwen{
+    font-size: 14px;
+    color: #a5a5a5;
+    text-align: center;
+    transition: font-size 0.5s;
+}
+#news{
+    padding: none !important;
+}
+@media screen and (max-width:768px){
+    .guanyu>.zhongwen{
+        font-size: 20px;
+    }
+    .guanyu>.yingwen{
+        font-size: 20px;
+    }
+    .guide-detail-img{
+        width: 200px;
+    }
+    .news-every{
+    height: 40px;
+    margin-bottom: 10px;
+    }
+}
+.news{
+    display: block;
+    overflow: hidden;
+    padding: 0 40px;
+}
+.news-every{
+    cursor: pointer;
+    font-size: 14px;
+    line-height:35px;
+    border-bottom: solid 1px #a5a5a5;
+    display: flex;
+    justify-content: space-between;
+}
+.news-every>.detail>a{
+    color: #333333;
+}
+.bottom{
+    padding: 0 30px;
+    margin: 60px auto;
+}
+
+.hidden-news{
+    padding:0 40px;
+    overflow: hidden;
+    display: none;
+}
+.hidden-news>h2{
+    margin:40px auto 20px;
+    text-align: center; 
+}
+.hidden-news>.fabusj{
+    text-align: center;
+    color: #878787;
+    margin-bottom: 40px;
+}
+.hidden-news>p{
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 2em;
+}
+.hidden-news .back{
+    width: 120px;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: solid 2px #2e2e2e;
+    margin: 60px auto 0;
+    color: #2e2e2e;
+    text-align: center;
+    cursor: pointer;
+}

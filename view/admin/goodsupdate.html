@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<ol class="breadcrumb">
+<li >首页</li>
+<li style="color:#337ab7">商品编辑</li>
+</ol>
+<form>
+    <input type="hidden" value="<?php echo $result['gid'];?>" name="gid">
+<div class="form-group">
+<label for="exampleInputEmail6">商品所属分类</label>
+<select class="form-control" id="exampleInputEmail6" name="cid">
+    <?php foreach($cate as $vl){?>
+    <option value="<?php echo $vl['cid'];?>" <?php echo $result['cid']==$vl['cid']?'selected':'';?>
+    ><?php echo $vl['cname'];?></option>
+    <?php }?>
+</select>
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">商品名称</label>
+<input name="name" type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $result['name']; ?>">
+</div>
+<div class="form-group">
+<label for="exampleInputPassword1">市场价格</label>
+<input name='mprice' type="number" class="form-control" id="exampleInputPassword1" value="<?php echo $result['mprice']; ?>">
+</div>
+<div class="form-group">
+<label for="exampleInputPassword3">零售价格</label>
+<input name='sale' type="number" class="form-control" id="exampleInputPassword3" value="<?php echo $result['sale']; ?>">
+</div>
+<div class="form-group">
+<label for="exampleInputPassword4">库存</label>
+<input name='stock' type="number" class="form-control" id="exampleInputPassword4" value="<?php echo $result['stock']; ?>">
+</div>
+<div class="form-group">
+<label for="exampleInputPassword5">商品详情</label>
+<textarea name='detail' class="form-control" id="exampleInputPassword5" ><?php echo $result['detail']; ?></textarea>
+</div>
+<div class="form-group">
+<label for="exampleInputEmail7">商品缩略图 <span>比例：1*1 最佳尺寸：200*200</span></label>
+<input type="file" accept="image/*" class="form-control" id="exampleInputEmail7" placeholder="商品缩略图">
+</div>
+<div class="form-group">
+<input type="hidden" name="thumb" id="tin" value="<?php echo $result['thumb']; ?>">
+<!--<label style="visibility: hidden">商品缩略图</label>-->
+<img src="<?php echo $result['thumb']; ?>" alt="" id="imgs" width="100px">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail8">商品轮播图</label>
+<input type="file" multiple  class="form-control" id="exampleInputEmail8" placeholder="商品轮播图">
+</div>
+<div class="form-group" id="banner">
+<input name="banner" type="hidden" value="<?php echo $result['banner'];?>">
+    <?php $str=$result['banner'];
+        $arr=explode(',',$str);
+        foreach($arr as $value){
+    ?>
+    <img src="<?php echo $value;?>" alt="" width="100px;" class="bimgs">
+    <?php }?>
+</div>
+
+<button type="submit" class="btn btn-default">Submit</button>
+
+</form>
+</body>
+</html>
+<script src="../../../公共js/jquery-3.4.1.min.js"></script>
+<script>
+    $('#exampleInputEmail7').on('change',function (e) {
+        e.preventDefault();
+        let file=this.files[0];
+        // $('input[name=thumb]').val(null);
+        // $('#imgs').attr('src',null);
+        let formdata=new FormData();
+        formdata.append('file',file);
+        let promise=new Promise(function (resolve,reject) {
+            $.ajax({
+                type:'POST',
+                url:'upload.php',
+                dataType:'json',
+                processData:false,
+                contentType:false,
+                data:formdata,
+                context:this,
+                success:function (res) {
+                    if(res.code===200){resolve(res)}else{
+                        reject(res)
+                    }
+
+                }
+            })
+        })
+        promise.then(function (res) {
+            $('#imgs').attr('src',res.src);
+            $('input[name=thumb]').val(res.src);
+        },function (res) {
+            console.log(res.msg)
+        })
+    })
+
+    $('#exampleInputEmail8').on('change',function (e) {
+        e.preventDefault();
+
+        let file=this.files;
+        for($i=0;$i<file.length;$i++) {
+            let formdata = new FormData();
+            formdata.append('file', file[$i]);
+            let promise=new Promise(function (resolve,reject) {
+                $.ajax({
+                    type:'POST',
+                    url:'upload.php',
+                    dataType:'json',
+                    data:formdata,
+                    contentType: false,
+                    processData: false,
+                    context: this,
+                    success:function (res) {
+                        if(code===200) {
+                            resolve(res)
+                        }else{
+                            reject(res)
+                        }
+                    }
+                })
+            })
+            promise.then(function (res) {
+                $('<img class="bimgs">').appendTo('#banner').css('width','100px');
+                $('input[name=banner]').val(function(index,value){
+                    return value+res.src+',';
+                })
+            },function (res) {
+                console.log(res.msg)
+            })
+        }
+
+    })
+    
+    $('form').on('submit',function (e) {
+        e.preventDefault();
+        $.ajax({
+            type:'POST',
+            url:'goodsupdate.php',
+            data:$(this).serialize(),
+            dataType:'json',
+            context:this,
+            success:function (res) {
+                if(res.code===200){
+                    console.log(res.msg)
+                    location.replace('goodsselect.php')
+                }else{
+                    console.log(res.msg)
+                }
+            }
+        })
+    })
+
+
+</script>
